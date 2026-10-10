@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>YouTube Focus · YouFeedlens</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="brand-row">
+        <img class="brand-logo" src="assets/youfeedlens-logo.png" alt="">
+        <div class="brand-copy"><span class="brand-name">YouFeedlens</span><span class="brand-kicker">YOUR LEARNING FEED</span></div>
+        <span class="youtube-tag"><span class="youtube-play">▶</span> YOUTUBE</span>
+      </header>
+
+      <section class="intro" aria-labelledby="title">
+        <p class="eyebrow">PERSONALIZED LEARNING</p>
+        <h1 id="title">YouTube <em>Focus</em></h1>
+        <p class="subtitle">Choose what you want to watch. We’ll blur the rest.</p>
+      </section>
+
+      <form id="focus-form">
+        <label for="domain">What do you want to watch today?</label>
+        <textarea id="domain" name="domain" maxlength="500" rows="3" placeholder="e.g. React, frontend engineering and web performance" required></textarea>
+        <div class="input-meta"><span>Describe a topic in your own words</span><span id="count">0 / 500</span></div>
+        <button id="start" class="primary" type="submit">Start Focus <span aria-hidden="true">→</span></button>
+      </form>
+
+      <section class="settings-card" aria-label="Focus settings">
+        <div class="section-heading"><span>Focus sensitivity</span><strong id="threshold-value">75%</strong></div>
+        <input id="threshold" type="range" min="50" max="95" step="5" value="75" aria-label="Blur confidence threshold">
+        <div class="range-labels"><span>More blur</span><span>More cautious</span></div>
+        <label for="api-key" class="compact-label">Your OpenAI API key <span class="optional">optional</span></label>
+        <input id="api-key" class="text-input" type="password" autocomplete="off" placeholder="sk-…">
+        <p class="privacy-note">Stored locally in this browser and sent only to your configured local backend.</p>
+      </section>
+
+      <section class="profiles-row" aria-label="Saved focus profiles">
+        <select id="profile" aria-label="Saved focus profiles"><option value="">Saved profiles</option></select>
+        <button id="save-profile" class="small-button" type="button">Save profile</button>
+      </section>
+
+      <section id="session" class="session" hidden aria-live="polite">
+        <div class="session-top">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span class="status-label">FOCUS MODE ACTIVE</span>
+        </div>
+        <p id="active-domain" class="active-domain"></p>
+        <div class="stats-grid">
+          <div><strong id="stat-analyzed">0</strong><span>Analyzed</span></div>
+          <div><strong id="stat-blurred">0</strong><span>Blurred</span></div>
+          <div><strong id="stat-clear">0</strong><span>Clear</span></div>
+          <div><strong id="stat-pending">0</strong><span>Pending</span></div>
+        </div>
+        <div class="session-actions">
+          <button id="pause" class="secondary" type="button">Pause Focus</button>
+          <button id="recheck" class="secondary" type="button">Recheck</button>
+          <button id="stop" class="text-button" type="button">Stop</button>
+        </div>
+      </section>
+
+      <p id="message" class="message" role="status" hidden></p>
+      <footer><span class="footer-dot"></span> Only works on YouTube</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

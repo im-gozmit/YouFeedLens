@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YouFeedlens",
+  "version": "1.0.0",
+  "description": "A premium AI focus mode for your YouTube learning feed",
+  "icons": {
+    "128": "assets/youfeedlens-logo.png"
+  },
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["http://localhost:8787/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "FeedLens YouTube Focus",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
