@@ -1,5 +1,5 @@
 # YouFeedlens
-
+Project Live : https://youfeedlens.vercel.app/
 YouFeedlens is a YouTube learning-feed focus mode. Describe what you want to learn today, and the extension evaluates visible recommendation cards against that domain. Relevant videos stay clear; confidently unrelated videos fade into the background.
 
 > Built for DevDay Community Event Bengaluru 2026  
